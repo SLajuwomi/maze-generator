@@ -12,6 +12,6 @@ class PrintMaze:
                          print(MARK, end="")
                     else:
                          print(graph[(row, col)], end="")
-          print()
+          print(    )
 
 

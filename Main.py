@@ -2,11 +2,12 @@ from collections import defaultdict
 from Graph import Graph
 from DFS import DFS
 from Grid import Grid
+from PrintMaze import PrintMaze
 import random
 
 # Constants
-WIDTH = 3
-HEIGHT = 3
+WIDTH = 39
+HEIGHT = 19
 # Ensure grid dimensions are odd
 assert WIDTH % 2 == 1 and WIDTH >= 3
 assert HEIGHT % 2 == 1 and HEIGHT >= 3
@@ -28,9 +29,10 @@ if __name__ == "__main__":
 
      grid_graph = Grid.create_grid_graph(graph, WIDTH, HEIGHT)
 
-     for cell, neighbors in grid_graph.items():
-          print(f"{cell}: {neighbors}")
+     # for cell, neighbors in grid_graph.items():
+     #      print(f"{cell}: {neighbors}")
 
      source = (0, 0)
-     print("DFS from source:", source)
-     DFS.dfs(grid_graph, source)
+     # print("DFS from source:", source)
+     maze_grid = DFS.dfs(grid_graph, source)
+     PrintMaze.printMaze(maze_grid, HEIGHT, WIDTH)
