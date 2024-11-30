@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class DFS:
      def __init__(self) -> None:
           pass
@@ -12,5 +15,5 @@ class DFS:
                     DFS.dfs_rec(graph, visited, i)
      
      def dfs(graph, current):
-          visited = [False] * len(graph)
+          visited = defaultdict(bool) # fill dictionary with False (False is def value for bool in Python)
           DFS.dfs_rec(graph, visited, current)

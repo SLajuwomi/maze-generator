@@ -12,11 +12,13 @@ if __name__ == "__main__":
      # for e in edges:
      #      Graph.add_edge(graph, e[0], e[1])
 
-     # source = 1
-     # print("DFS from source:", source)
-     # DFS.dfs(graph, source)
+     
 
      grid_graph = Grid.create_grid_graph(graph, 3, 3)
 
      for cell, neighbors in grid_graph.items():
           print(f"{cell}: {neighbors}")
+
+     source = (0, 0)
+     print("DFS from source:", source)
+     DFS.dfs(grid_graph, source)
