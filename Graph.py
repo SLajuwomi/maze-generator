@@ -4,7 +4,7 @@ class Graph:
 
      def add_edge(graph, vertex, edge):
           graph[vertex].append(edge)
-          graph[edge].append(vertex)
+          # graph[edge].append(vertex)
 
      def display_adj_list(graph):
           for vertex in range(len(graph)):
