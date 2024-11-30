@@ -1,4 +1,5 @@
 from collections import defaultdict
+import random
 
 
 class DFS:
@@ -10,10 +11,17 @@ class DFS:
 
           print(current, end=" ")
 
-          for i in graph[current]:
+          neighbors = graph[current][:]
+          random.shuffle(neighbors)
+
+          for i in neighbors:
                if not visited[i]:
                     DFS.dfs_rec(graph, visited, i)
+
+          # for i in graph[current]:
+          #      if not visited[i]:
+          #           DFS.dfs_rec(graph, visited, i)
      
      def dfs(graph, current):
           visited = defaultdict(bool) # fill dictionary with False (False is def value for bool in Python)
-          DFS.dfs_rec(graph, visited, current)
+          DFS.dfs_rec(graph, visited, current)    

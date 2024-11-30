@@ -2,6 +2,18 @@ from collections import defaultdict
 from Graph import Graph
 from DFS import DFS
 from Grid import Grid
+import random
+
+# Constants
+WIDTH = 3
+HEIGHT = 3
+# Ensure grid dimensions are odd
+assert WIDTH % 2 == 1 and WIDTH >= 3
+assert HEIGHT % 2 == 1 and HEIGHT >= 3
+# Reproduce the same maze given the same seed value
+# SEED = 1
+# random.seed(SEED)
+
 
 if __name__ == "__main__":
      # vertices = 5
@@ -14,7 +26,7 @@ if __name__ == "__main__":
 
      
 
-     grid_graph = Grid.create_grid_graph(graph, 3, 3)
+     grid_graph = Grid.create_grid_graph(graph, WIDTH, HEIGHT)
 
      for cell, neighbors in grid_graph.items():
           print(f"{cell}: {neighbors}")
