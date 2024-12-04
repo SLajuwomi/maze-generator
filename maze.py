@@ -5,13 +5,14 @@ class MazeGenerator:
         self.width = width
         self.height = height
         # Fill each space in the maze with a wall
+        # Double the width and height to account for the walls between cells
+        # and add 1 to each dimension to account for the outer walls
         self.maze = [[chr(9608) for x in range(width * 2 + 1)] for y in range(height * 2 + 1)]
         self.visited = [[False for x in range(width)] for y in range(height)]
     
-    
     def generate(self, start_x=None, start_y=None):
         # start_x and start_y are optional arguments that allow you to specify the starting point of the maze
-        if start_x is None:
+        if start_x is None: # If no starting point is specified, choose a random one
             start_x = random.randint(0, self.width - 1)
         if start_y is None:
             start_y = random.randint(0, self.height - 1)
@@ -55,6 +56,6 @@ if __name__ == "__main__":
     print("Insert a width and height for the maze.")
     width = int(input("Width: "))
     height = int(input("Height: "))
-    maze = MazeGenerator(width, height)  # Creates a 10x10 maze
+    maze = MazeGenerator(width, height)  
     maze.generate()
     maze.print_maze()
