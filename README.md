@@ -63,3 +63,19 @@ This program generates random mazes using a modified version of the depth-first 
 6.  If there are no unvisited neighbors, it backtracks to the previous cell and continues the process until the entire grid is explored.
 
 This backtracking ensures that every cell is connected, creating a perfect maze with no loops or isolated sections.
+
+#### Note
+
+This program cannot create grids with a width or height greater than 45. This is because the algorithm uses a recursive depth-first search (DFS) approach, which relies heavily on Python's recursion stack. By default, Python’s recursion limit is set to 1000 calls, and the depth of the recursion stack grows with the grid size. For larger grids, the number of recursive calls exceeds this limit, causing a `RecursionError`.
+
+If you need to handle larger mazes, you can:
+
+1.  Increase the recursion limit using:
+	~~~python
+	import sys
+	sys.setrecursionlimit(new_limit)
+	~~~
+
+	   **Warning:** Raising the recursion limit can lead to memory issues or program crashes if the stack size becomes too large.
+    
+2.  Refactor the algorithm to use an iterative approach, which avoids recursion altogether by using an explicit stack data structure. This approach eliminates the dependency on Python’s recursion depth.
